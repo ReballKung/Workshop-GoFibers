@@ -27,4 +27,22 @@ func InetRoutes(app *fiber.App) {
 	v3.Post("/:name", c.CornvertAscii)         //* EX: 5.2
 	v1.Post("/register", c.RegisterEmployee)   //* EX: 6
 
+	//CRUD dogs
+	dog := v1.Group("/dog")
+	dog.Get("", c.GetDogs)
+	dog.Get("/all", c.GetALLDogs)
+	dog.Get("/filter", c.GetDog)
+	dog.Get("/json", c.GetDogsJson)
+	dog.Post("/", c.AddDog) // * c => Create
+	dog.Put("/:id", c.UpdateDog)
+	dog.Get("/history", c.GetDataDelete) // * Ex 7.0.2
+
+	//CRUD company
+	company := v1.Group("/company")
+	company.Get("", c.GetCompony)            // * View AllData
+	company.Post("/", c.AddCompany)          // * ADD company
+	company.Put("/:id", c.UpdateCompany)     // * Update company
+	company.Delete("/:id", c.DeleteCompany)  // * Delete company
+	company.Get("/filter", c.GetComponyByID) // * View Data By ID
+
 }
