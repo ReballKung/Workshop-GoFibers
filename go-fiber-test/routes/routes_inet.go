@@ -13,13 +13,19 @@ func InetRoutes(app *fiber.App) {
 	v1 := api.Group("/v1")
 	v3 := api.Group("/v3")
 
-	//* EX : 5.0
-	//* [Middleware && Basic Authentication]
-	app.Use(basicauth.New(basicauth.Config{
+	v1.Use(basicauth.New(basicauth.Config{
 		Users: map[string]string{
-			"gofiber": "21022566",
+			"testgo": "23012023",
 		},
 	}))
+
+	//* EX : 5.0
+	//* [Middleware && Basic Authentication]
+	// api.Use(basicauth.New(basicauth.Config{
+	// 	Users: map[string]string{
+	// 		"gofiber": "21022566",
+	// 	},
+	// }))
 
 	//* API endpoint
 	v1.Get("/", c.HelloTest)                   //  [TEST AUTH]
@@ -44,5 +50,8 @@ func InetRoutes(app *fiber.App) {
 	company.Put("/:id", c.UpdateCompany)     // * Update company
 	company.Delete("/:id", c.DeleteCompany)  // * Delete company
 	company.Get("/filter", c.GetComponyByID) // * View Data By ID
+
+	// CRUD Profile_Users
+	// profile := v1.Group("/users")
 
 }

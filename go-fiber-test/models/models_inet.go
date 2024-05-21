@@ -43,3 +43,13 @@ type Company struct {
 	CompanyTel     string `json:"company_tel"`
 	CompanyID      int    `json:"company_id"`
 }
+
+type Users struct {
+	gorm.Model
+	EmployeeID string `json:"employee_id"`
+	Name       string `json:"name"`
+	Lastname   string `json:"lastname"`
+	Birthday   string `json:"birthday"`
+	Age        int    `json:"age"`
+	Tel        string `json:"tel"`
+}

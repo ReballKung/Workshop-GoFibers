@@ -292,4 +292,5 @@ func GetComponyByID(c *fiber.Ctx) error {
 	}
 
 	return c.Status(200).JSON(&company)
+
 }

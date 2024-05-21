@@ -30,6 +30,7 @@ func initDatabase() {
 	// * เรียก Models เพื่อสร้าง Tables
 	database.DBConn.AutoMigrate(&m.Dogs{})
 	database.DBConn.AutoMigrate(&m.Company{})
+	database.DBConn.AutoMigrate(&m.Users{})
 }
 
 func main() {
